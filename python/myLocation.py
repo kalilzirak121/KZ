@@ -1,13 +1,19 @@
 class Location:
-    
     def __init__(self, name, country):
         self.name = name
         self.country = country
+    def myLocation(self):
+        print("Hi, My name is " + self.name + " and I live in " + self.country + ".")
 
-loc = Location("Kalil", "Belgium")
+#First instantiation of the class Location
+loc1 = Location("Tomas", "Portugal")
+#Call a method from the instantiated class
+loc1.myLocation()
 
-print(loc.name)
-print(loc.country)
+loc2 = Location("Ying", "China")
+loc3 = Location("Amare", "Kenya")
+loc2.myLocation()
+loc3.myLocation()
 
-print(type(loc))
-
+your_loc = Location("Kalil", "Belgium")
+your_loc.myLocation()
