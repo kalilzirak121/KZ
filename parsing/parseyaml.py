@@ -1,15 +1,14 @@
 # Fill in this file with the code from parsing YAML exercise
-import xml.etree.ElementTree as ET
-import re
+import json
+import yaml
 
-xml = ET.parse("myFile.xml")
-root = xml.getroot()
+with open('myfile.yaml', 'r') as yaml_file:
+    ouryaml = yaml.safe_load(yaml_file)
 
-ns = re.match('{.*}', root.tag).group(0)
-editconf = root.find("{}edit-config".format(ns))
-defop = editconf.find("{}default-operation".format(ns))
-testop = editconf.find("{}test-option".format(ns))
+print(ouryaml)
 
-print("The default-operation contains: {}".format(defop.text))
-print("The test-option contains: {}".format(testop.text))
+print("The access token is {}".format(ouryaml['access_token']))
+print("The token expires in {} seconds.".format(ouryaml['expires_in']))
 
+print("\n\n")
+print(json.dumps(ouryaml, indent=4))
